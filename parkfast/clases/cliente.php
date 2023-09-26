@@ -6,7 +6,7 @@ class cliente{
     private $apellido;
     private $cedula;
     private $edad;
-    const TABLA='usuario';
+    const TABLA='cliente';
 
     public function getId(){
         return $this->id;

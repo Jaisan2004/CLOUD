@@ -7,7 +7,9 @@ class ubicacion{
     private $piso_ubica;
     private $lugar_ubica;
     private $id_estacionamiento;
-    const TABLA = 'ubicacion';
+    const TABLA = 'ubicacion as ubi';
+    const TABLAESTACI='estacionamiento as es';
+    const TABLAESTADO='estado_ubicacion as est';
 
     public function getId(){
         return $this->id_ubica;
@@ -87,7 +89,9 @@ class ubicacion{
     } 
     public static function recuperarTodos(){
         $conexion = new Conexion();
-        $consulta = $conexion->prepare('SELECT*FROM ' . self::TABLA . ' ORDER BY id');
+        $consulta = $conexion->prepare('SELECT ubi.id, ubi.nombre, ubi.lugarDeEstacionamiento as ubicacion, est.nombre_est_ubicacion as estado,
+         ubi.piso, es.nombre as estacionamiento FROM ' . self::TABLA . ' INNER JOIN '.self::TABLAESTACI.' on ubi.id_estacionamiento = es.id INNER JOIN '
+         .self::TABLAESTADO.' on ubi.estado = est.id ORDER BY id');
         $consulta->execute();
         $registros = $consulta->fetchAll();
         return $registros;

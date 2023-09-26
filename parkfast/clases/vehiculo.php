@@ -8,7 +8,9 @@ class vehiculo{
     private $color;
     private $tipo_vehiculo;
     private $id_duenio;
-    const TABLA='vehiculo';
+    const TABLA='vehiculo as ve';
+    const TABLATIPO='tipovehiculo as ti';
+    const TABLACLIEN='cliente as cli';
 
     public function getId(){
         return $this->id_vehicu;
@@ -97,7 +99,8 @@ class vehiculo{
     } 
     public static function recuperarTodos(){
         $conexion = new Conexion();
-        $consulta = $conexion->prepare('SELECT*FROM ' . self::TABLA . ' ORDER BY id');
+        $consulta = $conexion->prepare('SELECT ve.id, ve.modelo, ve.marca, ve.placa, ve.color, ti.tipo_vehiculo, CONCAT(cli.nombre," ",cli.apellido) as duenio
+        FROM ' . self::TABLA . ' INNER JOIN '.self::TABLATIPO.' ON ve.id_tipo_vehiculo = ti.id INNER JOIN '.self::TABLACLIEN.' on ve.id_duenio = cli.id ORDER BY id');
         $consulta->execute();
         $registros = $consulta->fetchAll();
         return $registros;
