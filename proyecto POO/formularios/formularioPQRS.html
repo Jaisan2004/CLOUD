@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Vehículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container  bg-light-subtle border border-dark-subtle rounded-3">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12 text-center">
+              
+                    <form class="form-horizontal" method="post">
+                        <fieldset>
+                            <br>
+                            <legend class="text-center header">Agregar PQRS</legend>
+    
+                            <div class="form-group">
+                                
+                                <div class="col-md-8">
+                                    <input id="fname" name="name" type="text" placeholder="Cédula del usuario" class="form-control" required>
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <input id="email" name="email" type="text" placeholder="Identificador del Ticket" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <input id="email" name="email" type="text" placeholder="Fecha y hora del incidente" class="form-control" required>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <select class="form-control" id="prioridad" name="prioridad">
+                                        <option value="0" selected="selected">Prioridad</option>
+                                        <option value="1">Crítico</option>
+                                        <option value="2">Alto</option>
+                                        <option value="3">Normal</option>
+                                        <option value="4">Bajo</option>
+                                        <option value="5">Muy bajo</option>
+                                    </select>                                
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <textarea type="text" class="form-control" name="descripcion" value="" placeholder="Ingrese aquí la descripción de su solicitud"></textarea> 
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <div class="file-select" id="src-file1">
+                                        <input type="file" id="fileInput" name="file">                                
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                                </div>
+                                <br>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <style>
+        .file-select {
+  position: relative;
+  display: inline-block;
+}
+
+.file-select::before {
+  background-color: #0d6efd;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  content: 'Seleccionar'; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.file-select input[type="file"] {
+  opacity: 0;
+  width: 200px;
+  height: 32px;
+  display: inline-block;
+}
+
+#src-file1::before {
+  content: 'Elegir archivo';
+}
+    </style>
+</body>
+</html>
